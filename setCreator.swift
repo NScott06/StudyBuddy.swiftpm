@@ -23,11 +23,6 @@ struct setCreator: View {
                 
                 
                 pair.append(pairs(term2: term1, definition2: definition1))
-                print("Here")
-                print("Here")
-                print("Here")
-                print("Here")
-                print(pair)
                 if pair != [] {
                     if let data = try? JSONEncoder().encode(pair) {
                         UserDefaults.standard.set(data, forKey: "pair")

@@ -42,9 +42,6 @@ struct flipcard: View {
                                 self.flipped.toggle()
                             }
                     }
-                    .onAppear(perform: {
-                        
-                    })
                 }
             }
         }
