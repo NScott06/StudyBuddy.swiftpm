@@ -21,7 +21,7 @@ struct flipcard: View {
     var body: some View {
         
         if let data = UserDefaults.standard.value(forKey: "pair") as? Data {
-            if let dataDecoded = try? JSONDecoder().decode([pairs].self, from: data){
+            if var dataDecoded = try? JSONDecoder().decode([pairs].self, from: data){
                 
                 ForEach(dataDecoded, id: \.self) { pair2 in
                     
@@ -43,6 +43,14 @@ struct flipcard: View {
                             }
                     }
                 }
+//                VStack{
+//                    Button {
+//                        dataDecoded.shuffle()
+//                    } label: {
+//                        Text("next")
+//                    }
+//                }
+
             }
         }
     }
