@@ -3,9 +3,7 @@ import SwiftUI
 struct setCreator: View {
     @State var term1:String = ""
     @State var definition1:String = ""
-    @State var pair45 = UserDefaults.standard.value(forKey: "pair") as? Data
     @State var pair:[pairs] = []
-//    @State var pair = UserDefaults.standard.data(forKey: "pair")
     var body: some View {
         if let data = UserDefaults.standard.value(forKey: "pair") as? Data {
             if var dataDecoded = try? JSONDecoder().decode([pairs].self, from: data){
