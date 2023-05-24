@@ -10,12 +10,10 @@ import SwiftUI
 
 struct flipcard: View {
     
-    @State var term1:String
-    @State var definition1: String
     @State var frontCardColor = Color.red
     @State var backCardColor = Color.blue
     @State var flipped = false // state variable used to update the card
-    
+    @State var number23432 = 0
     
     
     var body: some View {
