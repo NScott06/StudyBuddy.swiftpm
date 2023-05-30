@@ -26,5 +26,5 @@ extension Array where Element: Hashable {
         }
         return nil
     }
-
-    }
+    
+}
