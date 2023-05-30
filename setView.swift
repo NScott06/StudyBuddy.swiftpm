@@ -3,6 +3,7 @@ import SwiftUI
 struct setView: View {
     @State var term1:String
     @State var definition1: String
+    
     var body: some View {
         VStack{
             
@@ -20,6 +21,7 @@ struct setView: View {
                             thing.index(0, offsetBy: 1) //this one is flawed, everything else works i think, might have to do it where we display terms on the card
                             thing.removeLast()
                         }
+                        .frame(maxWidth: .infinity,maxHeight: .infinity)
                     }
                 } label: {
                     Text("WORK")
