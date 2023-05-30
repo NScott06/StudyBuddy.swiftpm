@@ -10,16 +10,21 @@ struct setCreator: View {
                 HStack{
                     VStack{
                         Text("Terms")
-                        ForEach(dataDecoded,id: \.self){ item in
-                            
-                            Text(item.term2)
+                        
+                        List{
+                            ForEach(dataDecoded,id: \.self){ item in
+                                
+                                Text(item.term2)
+                            }
                         }
                     }
                         VStack{
                             Text("Definitions")
-                        ForEach(dataDecoded,id: \.self){ item in
-                            
-                                Text(item.definition2)
+                            List{
+                                ForEach(dataDecoded,id: \.self){ item in
+                                    
+                                    Text(item.definition2)
+                                }
                             }
                     }
                 }
@@ -30,30 +35,29 @@ struct setCreator: View {
                 .textFieldStyle(.roundedBorder)
                 .padding()
                 
-                Button(action: {
-                    //                if let data = UserDefaults.standard.value(forKey: "pair") as? Data {
-                    //                    if let dataDecoded = try? JSONDecoder().decode([pairs].self, from: data){
-                    
-                    dataDecoded.append(pairs(term2: term1, definition2: definition1))
-                    print("Here")
-                    print("Here")
-                    print("Here")
-                    print("Here")
-                    print(dataDecoded)
-                    if dataDecoded != [] {
-                        if let data = try? JSONEncoder().encode(dataDecoded) {
-                            UserDefaults.standard.set(data, forKey: "pair")
-                        } else{
-                            print("UH OH FAILED")
+                HStack{
+                    Button(action: {
+                        
+                        dataDecoded.append(pairs(term2: term1, definition2: definition1))
+                        print("Here")
+                        print("Here")
+                        print("Here")
+                        print("Here")
+                        print(dataDecoded)
+                        if dataDecoded != [] {
+                            if let data = try? JSONEncoder().encode(dataDecoded) {
+                                UserDefaults.standard.set(data, forKey: "pair")
+                            } else{
+                                print("UH OH FAILED")
+                            }
+                        } else {
+                            print("add something")
                         }
-                    } else {
-                        print("add something")
-                    }
-                    //                    }
-                    //                }
-                }, label: {
-                    Image(systemName: "plus.circle")
-                })
+                        
+                    }, label: {
+                        Image(systemName: "plus.circle")
+                    })
+                }
             }
         }
     }
