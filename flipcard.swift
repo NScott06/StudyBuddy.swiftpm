@@ -49,6 +49,9 @@ struct flipcard: View {
                     }
                     Button {
                         dataDecoded.remove(at: 0)
+                        if let data = try? JSONEncoder().encode(dataDecoded) {
+                            UserDefaults.standard.set(data, forKey: "pair")
+                        }
                     } label: {
                         Text("delete term")
                     }
