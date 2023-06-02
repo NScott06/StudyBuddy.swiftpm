@@ -9,7 +9,7 @@ struct setView: View {
             
             
             
-            ZStack{ //switch this to Z-stack in order to next card(when its made)
+            VStack{ //switch this to Z-stack in order to next card(when its made)
                 
                 flipcard()
                     .frame(width: 300, height: 200)
@@ -21,7 +21,6 @@ struct setView: View {
                             thing.index(0, offsetBy: 1) //this one is flawed, everything else works i think, might have to do it where we display terms on the card
                             thing.removeLast()
                         }
-                        .frame(maxWidth: .infinity,maxHeight: .infinity)
                     }
                 } label: {
                     Text("WORK")

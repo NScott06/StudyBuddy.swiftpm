@@ -22,7 +22,6 @@ struct flipcard: View {
                 if var dataDecoded = try? JSONDecoder().decode([pairs].self, from: data){
                     ForEach(dataDecoded, id: \.self) { pair2 in
                         ZStack{
-                            
                             RoundedRectangle(cornerRadius: 20)
                             
                                 .foregroundColor(self.flipped ? frontCardColor : backCardColor)
@@ -48,6 +47,12 @@ struct flipcard: View {
                         }
                         
                     }
+                    Button {
+                        dataDecoded.remove(at: 0)
+                    } label: {
+                        Text("delete term")
+                    }
+
                     
                     ColorPicker("Change Back Flashcard Color", selection: $frontCardColor)
                     ColorPicker("Change Front Flashcard Color", selection: $backCardColor)
