@@ -38,13 +38,11 @@ struct setCreator: View {
                 HStack{
                     Button(action: {
                         
+                        
                         dataDecoded.append(pairs(term2: term1, definition2: definition1))
-                        print("Here")
-                        print("Here")
-                        print("Here")
-                        print("Here")
-                        print(dataDecoded)
-                        if dataDecoded != [] {
+                        
+                        if dataDecoded != []
+                        {
                             if let data = try? JSONEncoder().encode(dataDecoded) {
                                 UserDefaults.standard.set(data, forKey: "pair")
                             } else{
@@ -53,6 +51,8 @@ struct setCreator: View {
                         } else {
                             print("add something")
                         }
+                        term1 = ""
+                        definition1 = ""
                         
                     }, label: {
                         Image(systemName: "plus.circle")

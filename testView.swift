@@ -20,7 +20,11 @@ struct testView: View {
             if var dataDecoded = try? JSONDecoder().decode([pairs].self, from: data){
                 VStack{
                   
-                    Text(definition1)
+                    ForEach(dataDecoded,id: \.self){ item in
+                        
+                        Text(item.definition2)
+                    }
+
                     TextField("What is your term", text: $enteredTerm)
                         .onSubmit {
                             for value in pair{

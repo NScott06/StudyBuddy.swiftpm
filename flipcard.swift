@@ -15,9 +15,11 @@ struct flipcard: View {
     @State var flipped = false // state variable used to update the card
     @State var termOrDefinition = false
     @State var number23432 = 0
+    @State var deletedTerms = 0
     
     
     var body: some View {
+        Text("Number of terms deleted: \(deletedTerms)")
             if let data = UserDefaults.standard.value(forKey: "pair") as? Data {
                 if var dataDecoded = try? JSONDecoder().decode([pairs].self, from: data){
                     ForEach(dataDecoded, id: \.self) { pair2 in
@@ -47,7 +49,9 @@ struct flipcard: View {
                         }
                         
                     }
+                    
                     Button {
+                        deletedTerms += 1
                         dataDecoded.remove(at: 0)
                         if let data = try? JSONEncoder().encode(dataDecoded) {
                             UserDefaults.standard.set(data, forKey: "pair")
