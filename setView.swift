@@ -5,7 +5,7 @@ struct setView: View {
     @State var definition1: String
     
     var body: some View {
-        VStack{
+        ScrollView{
             
             
             
@@ -22,6 +22,7 @@ struct setView: View {
                             thing.removeLast()
                         }
                     }
+                    
                 } label: {
                     Text("WORK")
                 }
@@ -29,6 +30,8 @@ struct setView: View {
                 
                 
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+
             .onAppear(perform: {
                 term1 = UserDefaults.standard.string(forKey: "term") ?? ""
                 definition1 = UserDefaults.standard.string(forKey: "definition") ?? ""
