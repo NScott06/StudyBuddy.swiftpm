@@ -5,11 +5,11 @@ struct setView: View {
     @State var definition1: String
     
     var body: some View {
-        VStack{
+        ScrollView{
             
             
             
-            ZStack{ //switch this to Z-stack in order to next card(when its made)
+            VStack{ //switch this to Z-stack in order to next card(when its made)
                 
                 flipcard()
                     .frame(width: 300, height: 200)
@@ -21,8 +21,8 @@ struct setView: View {
                             thing.index(0, offsetBy: 1) //this one is flawed, everything else works i think, might have to do it where we display terms on the card
                             thing.removeLast()
                         }
-                        .frame(maxWidth: .infinity,maxHeight: .infinity)
                     }
+                    
                 } label: {
                     Text("WORK")
                 }
@@ -30,6 +30,8 @@ struct setView: View {
                 
                 
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+
             .onAppear(perform: {
                 term1 = UserDefaults.standard.string(forKey: "term") ?? ""
                 definition1 = UserDefaults.standard.string(forKey: "definition") ?? ""
